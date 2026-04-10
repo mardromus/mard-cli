@@ -11,6 +11,8 @@ Commands:
 Flags:
   --username <name>                Provide GitHub username to connect
   --token <token>                  Provide GitHub token to connect
+  --client-id <id>                 GitHub OAuth app client ID for device flow
+  --scope <scopes>                 Override requested GitHub scopes
   --message <text>                 Override the drafted message
   --title <text>                   Override the issue title
   --save <path>                    Save outreach output to a file

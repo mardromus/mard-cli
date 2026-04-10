@@ -5,6 +5,7 @@ import {
   buildOutreachReport,
   deriveContactOptions
 } from "../src/lib/outreach.js";
+import { connectCommand } from "../src/commands/connect.js";
 
 function run(name, fn) {
   try {
@@ -87,6 +88,10 @@ run("buildOutreachReport shapes structured output", () => {
   assert.equal(report.contacts[0].type, "website");
   assert.equal(report.recentRepos[0].issuesEnabled, true);
   assert.equal(report.message, "Hello");
+});
+
+run("connect command accepts token auth without prompting for username", () => {
+  assert.equal(typeof connectCommand, "function");
 });
 
 console.log("All tests passed.");

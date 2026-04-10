@@ -45,19 +45,30 @@ Starts onboarding if you have not connected your GitHub profile yet. Otherwise s
 
 ### `mard connect`
 
-Prompts for your GitHub username and personal access token, verifies the token against the GitHub API, and stores your profile locally.
+Uses GitHub device authorization when a GitHub OAuth client ID is configured, verifies the authenticated account against the GitHub API, and stores your profile locally.
+
+Recommended setup:
+
+```bash
+$env:MARD_GITHUB_CLIENT_ID="your_github_oauth_client_id"
+mard connect
+```
+
+The CLI will print GitHub's verification URL and a one-time code. You complete the approval in the browser, and the CLI polls until the authorization finishes.
 
 You can also connect non-interactively:
 
 ```bash
-mard connect --username your-handle --token github_pat_xxx
+mard connect --token github_pat_xxx
+mard connect --client-id your_github_oauth_client_id
 ```
 
 Mard reads the token in this order:
 
-1. Existing saved config
+1. `--token`
 2. `GITHUB_TOKEN`
-3. Interactive prompt
+3. Device flow using `--client-id` or `MARD_GITHUB_CLIENT_ID`
+4. Interactive token prompt
 
 ### `mard whoami`
 
@@ -96,6 +107,8 @@ Recommended minimum scopes:
 - `user:email`
 
 Add `public_repo` if you want `--open-issue` to work against public repositories.
+
+For device flow, make sure your GitHub OAuth app has device flow enabled.
 
 ## Security
 

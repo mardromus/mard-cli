@@ -9,5 +9,6 @@ export async function whoAmICommand() {
 
   console.log(`Connected GitHub: ${config.github.username}`);
   console.log(`Profile URL: ${config.github.profile?.html_url || "unknown"}`);
+  console.log(`Auth mode: ${config.github.authMode || "token"}`);
   console.log(`Config path: ${getConfigPath()}`);
 }
