@@ -1,0 +1,23 @@
+{
+  "name": "mard-cli",
+  "version": "0.1.0",
+  "description": "A production-ready CLI for GitHub-first outreach.",
+  "type": "module",
+  "bin": {
+    "mard": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "node ./test/run.js",
+    "start": "node ./src/cli.js"
+  },
+  "keywords": [
+    "cli",
+    "github",
+    "outreach",
+    "networking"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.10.0"
+  }
+}
